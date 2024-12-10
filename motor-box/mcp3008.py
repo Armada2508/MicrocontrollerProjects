@@ -24,3 +24,7 @@ class MCP3008:
         self._spi.write_readinto(self._write_buf, self._read_buf)
         self._chip_select.value(1)
         return ((self._read_buf[1] & 0x03) << 8) | self._read_buf[2]  # Drop the first null bit and return 10 bits
+    
+    def rangeConvert(currentValue):
+        max = 1023
+        return int((currentValue / max) + 1)

@@ -1,7 +1,7 @@
 from machine import Pin
 from utime import sleep
 from machine import Pin, PWM
-
+from mcp3008 import MCP3008
 FQ = 333
 PW = 1500000
 #Input Pins/PWM
@@ -18,8 +18,11 @@ pOut6 = PWM(Pin(6, Pin.OUT), FQ, duty_ns = PW)
 pOut7 = PWM(Pin(7, Pin.OUT), FQ, duty_ns = PW)
 pOut8 = PWM(Pin(8, Pin.OUT), FQ, duty_ns = PW)
 pOut9 = PWM(Pin(9, Pin.OUT), FQ, duty_ns = PW)
-# pwm5 = PWM(pOut0, freq=333)
+#adc Pins?
+rangeConvert()
 
+# pwm5 = PWM(pOut0, freq=333)
+# as
 pOut2.duty_ns(2000000) # 1 ms
 print(pOut2.freq())
 print("LED starts flashing...")
