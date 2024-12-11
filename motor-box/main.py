@@ -5,10 +5,6 @@ from utime import sleep
 FQ = 333
 PW = 1500000
 mcp = MCP3008(1, 14, 15, 16, 17)
-convertedRangeChanelZero = mcp.rangeConvert(mcp.read_adc(0))
-convertedRangeChanelOne = mcp.rangeConvert(mcp.read_adc(1))
-convertedRangeChanelTwo = mcp.rangeConvert(mcp.read_adc(2))
-convertedRangeChanelThree = mcp.rangeConvert(mcp.read_adc(3))
 # self, bus: int, clock_pin: int, mosi_pin: int, miso_pin: int, chip_select_pin: int
 #Input Pins/PWM
 pIn10 = (Pin(10, Pin.IN, Pin.PULL_DOWN))
@@ -32,6 +28,11 @@ pOut2.duty_ns(2000000) # 1 ms
 print(pOut2.freq())
 print("LED starts flashing...")
 while True:
+    convertedRangeChanelZero = mcp.rangeConvert(mcp.read_adc(0))
+    convertedRangeChanelOne = mcp.rangeConvert(mcp.read_adc(1))
+    convertedRangeChanelTwo = mcp.rangeConvert(mcp.read_adc(2))
+    convertedRangeChanelThree = mcp.rangeConvert(mcp.read_adc(3))
+    
     pOut2.duty_ns(convertedRangeChanelZero)
     pOut3.duty_ns(convertedRangeChanelZero)
 
