@@ -12,19 +12,19 @@ class MCP3008:
         self._write_buf[0] = 0x01  # Start bit
         self._read_buf = bytearray(3)  # Must be the same length as the write buffer
 
-    def read_adc(self, channel: int) -> float | None:
+    def read_adc(self, channel: int) -> float:
         """
         Returns the value between [0-1023] that the MCP3008 is currently reading off the provided channel.
         To convert this value to a voltage multiply by (V_REF / 1023).
         """
         if channel < 0 or channel > 7:
-            return None
+            return 0
         self._chip_select.value(0)
         self._write_buf[1] = (1 << 7) | channel << 4  # single-ended
         self._spi.write_readinto(self._write_buf, self._read_buf)
         self._chip_select.value(1)
         return ((self._read_buf[1] & 0x03) << 8) | self._read_buf[2]  # Drop the first null bit and return 10 bits
-    
+
     def rangeConvert(currentValue):
         max = 1023
         return int((currentValue / max) + 1)
