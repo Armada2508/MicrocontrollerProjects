@@ -21,22 +21,22 @@ pOut8 = PWM(Pin(8, Pin.OUT), freq=FREQUENCY, duty_ns=NEUTRAL_PW)
 pOut9 = PWM(Pin(9, Pin.OUT), freq=FREQUENCY, duty_ns=NEUTRAL_PW)
 
 while True:
-    convertedRangeChanelZero = mcp.rangeConvert(mcp.read_adc(0))
-    convertedRangeChanelOne = mcp.rangeConvert(mcp.read_adc(1))
-    convertedRangeChanelTwo = mcp.rangeConvert(mcp.read_adc(2))
-    convertedRangeChanelThree = mcp.rangeConvert(mcp.read_adc(3))
+    convertedRangeChannelZero = mcp.rangeConvert(mcp.read_adc(0))
+    convertedRangeChannelOne = mcp.rangeConvert(mcp.read_adc(1))
+    convertedRangeChannelTwo = mcp.rangeConvert(mcp.read_adc(2))
+    convertedRangeChannelThree = mcp.rangeConvert(mcp.read_adc(3))
 
-    pOut2.duty_ns(convertedRangeChanelZero)
-    pOut3.duty_ns(convertedRangeChanelZero)
+    pOut2.duty_ns(convertedRangeChannelZero)
+    pOut3.duty_ns(convertedRangeChannelZero)
 
-    pOut4.duty_ns(convertedRangeChanelOne)
-    pOut5.duty_ns(convertedRangeChanelOne)
+    pOut4.duty_ns(convertedRangeChannelOne)
+    pOut5.duty_ns(convertedRangeChannelOne)
 
-    pOut6.duty_ns(convertedRangeChanelTwo)
-    pOut7.duty_ns(convertedRangeChanelTwo)
+    pOut6.duty_ns(convertedRangeChannelTwo)
+    pOut7.duty_ns(convertedRangeChannelTwo)
 
-    pOut8.duty_ns(convertedRangeChanelThree)
-    pOut9.duty_ns(convertedRangeChanelThree)
+    pOut8.duty_ns(convertedRangeChannelThree)
+    pOut9.duty_ns(convertedRangeChannelThree)
 
     if pIn10.value():
         pOut2.duty_ns(NEUTRAL_PW)

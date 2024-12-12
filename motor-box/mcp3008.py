@@ -5,7 +5,7 @@ class MCP3008:
     """https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP3004-MCP3008-Data-Sheet-DS20001295.pdf"""
 
     def __init__(self, bus: int, clock_pin: int, mosi_pin: int, miso_pin: int, chip_select_pin: int) -> None:
-        """Initalizes a SPI bus for communicating with an MCP3008 chip."""
+        """Initializes a SPI bus for communicating with an MCP3008 chip."""
         self._spi = SPI(bus, baudrate=3_600_000, sck=Pin(clock_pin), mosi=Pin(mosi_pin), miso=Pin(miso_pin))
         self._chip_select = Pin(chip_select_pin, mode=Pin.OUT, value=1)
         self._write_buf = bytearray(3)
@@ -26,5 +26,6 @@ class MCP3008:
         return ((self._read_buf[1] & 0x03) << 8) | self._read_buf[2]  # Drop the first null bit and return 10 bits
 
     def rangeConvert(currentValue):
+        """Document me!"""
         max = 1023
         return int((currentValue / max) + 1)
