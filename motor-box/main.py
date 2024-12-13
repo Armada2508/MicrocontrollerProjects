@@ -4,7 +4,7 @@ from mcp3008 import MCP3008
 
 FREQUENCY = 333
 NEUTRAL_PW = 1500000  # PWM Pulse Width for neutral output in nano seconds
-mcp = MCP3008(1, 14, 15, 16, 17)
+mcp = MCP3008(1, 10, 11, 12, 13)
 # Input Pins/PWM
 pIn10 = Pin(10, Pin.IN, Pin.PULL_DOWN)
 pIn11 = Pin(11, Pin.IN, Pin.PULL_DOWN)
