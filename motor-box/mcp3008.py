@@ -25,7 +25,7 @@ class MCP3008:
         self._chip_select.value(1)
         return ((self._read_buf[1] & 0x03) << 8) | self._read_buf[2]  # Drop the first null bit and return 10 bits
 
-    def rangeConvert(currentValue):
-        """Document me!"""
+    def rangeConvert(self, currentValue):
+        """Converts the MCP value into a range value between 1-2"""
         max = 1023
         return int((currentValue / max) + 1)

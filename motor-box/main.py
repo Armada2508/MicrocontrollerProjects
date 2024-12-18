@@ -6,10 +6,10 @@ FREQUENCY = 333
 NEUTRAL_PW = 1500000  # PWM Pulse Width for neutral output in nano seconds
 mcp = MCP3008(1, 10, 11, 12, 13)
 # Input Pins/PWM
-pIn10 = Pin(10, Pin.IN, Pin.PULL_DOWN)
-pIn11 = Pin(11, Pin.IN, Pin.PULL_DOWN)
-pIn12 = Pin(12, Pin.IN, Pin.PULL_DOWN)
-pIn13 = Pin(13, Pin.IN, Pin.PULL_DOWN)
+pIn14 = Pin(14, Pin.IN, Pin.PULL_DOWN)
+pIn15 = Pin(15, Pin.IN, Pin.PULL_DOWN)
+pIn16 = Pin(16, Pin.IN, Pin.PULL_DOWN)
+pIn17 = Pin(17, Pin.IN, Pin.PULL_DOWN)
 # Output Pins/PWM
 pOut2 = PWM(Pin(2, Pin.OUT), freq=FREQUENCY, duty_ns=NEUTRAL_PW)
 pOut3 = PWM(Pin(3, Pin.OUT), freq=FREQUENCY, duty_ns=NEUTRAL_PW)
@@ -38,15 +38,15 @@ while True:
     pOut8.duty_ns(convertedRangeChannelThree)
     pOut9.duty_ns(convertedRangeChannelThree)
 
-    if pIn10.value():
+    if pIn14.value():
         pOut2.duty_ns(NEUTRAL_PW)
         pOut3.duty_ns(NEUTRAL_PW)
-    if pIn11.value():
+    if pIn15.value():
         pOut4.duty_ns(NEUTRAL_PW)
         pOut5.duty_ns(NEUTRAL_PW)
-    if pIn12.value():
+    if pIn16.value():
         pOut6.duty_ns(NEUTRAL_PW)
         pOut7.duty_ns(NEUTRAL_PW)
-    if pIn13.value():
+    if pIn17.value():
         pOut8.duty_ns(NEUTRAL_PW)
         pOut9.duty_ns(NEUTRAL_PW)
