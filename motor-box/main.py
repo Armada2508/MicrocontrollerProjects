@@ -19,6 +19,7 @@ pOut6 = PWM(Pin(6, Pin.OUT), freq=FREQUENCY, duty_ns=NEUTRAL_PW)
 pOut7 = PWM(Pin(7, Pin.OUT), freq=FREQUENCY, duty_ns=NEUTRAL_PW)
 pOut8 = PWM(Pin(8, Pin.OUT), freq=FREQUENCY, duty_ns=NEUTRAL_PW)
 pOut9 = PWM(Pin(9, Pin.OUT), freq=FREQUENCY, duty_ns=NEUTRAL_PW)
+adcPower = Pin(18, Pin.OUT, value=1)
 
 while True:
     convertedRangeChannelZero = mcp.rangeConvert(mcp.read_adc(0))
